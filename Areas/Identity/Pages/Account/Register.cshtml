@@ -1,0 +1,81 @@
+﻿@page
+@model RegisterModel
+
+@{ Layout = ""; }
+<link href="~/material-kit-master/assets/css/material-kit.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/38a775c634.js" crossorigin="anonymous"></script>
+
+@{
+    ViewData["Title"] = "Registrar";
+}
+<div class="col-md-12 col-sm-12 col-lg-12" style="padding-top:200px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mx-auto">
+                <div class="card card-login">
+                    <form class="form" asp-route-returnUrl="@Model.ReturnUrl">
+                        <div class="card-header card-header-danger text-center">
+                            <h2 class="card-title">SpeedFit</h2>
+                        </div>
+                        <div class="card-body">
+                            <span class="bmd-form-group is-filled">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-address-card"></i>
+                                        </span>
+                                    </div>
+                                    <input asp-for="Input.Nome" class="form-control" placeholder="Nome" />
+                                    <span asp-validation-for="Input.Nome" class="text-danger"></span>
+                                </div>
+                            </span>
+                            <span class="bmd-form-group is-filled">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <input asp-for="Input.Email" type="email" class="form-control" placeholder="Email" />
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </div>
+                            </span>
+                            <span class="bmd-form-group is-filled">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-key"></i>
+                                        </span>
+                                    </div>
+                                    <input asp-for="Input.Password" type="password" class="form-control" placeholder="Senha" autocomplete="" />
+                                    <span asp-validation-for="Input.Password" typeof="password" class="text-danger"></span>
+                                </div>
+                            </span>
+                            <span class="bmd-form-group is-filled">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-key"></i>
+                                        </span>
+                                    </div>
+                                    <input asp-for="Input.ConfirmPassword" type="password" class="form-control" placeholder="Confirmar Senha" autocomplete="" />
+                                    <span asp-validation-for="Input.ConfirmPassword" typeof="password" class="text-danger"></span>
+                                </div>
+                            </span>
+                        </div>
+                        <br />
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="text-center">
+                            <input type="submit" value="Registrar" class="btn btn-danger btn-round" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
